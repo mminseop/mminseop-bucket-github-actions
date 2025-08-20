@@ -1,4 +1,4 @@
-name: deploy to s3 and invalidate cloudfront
+name: Deploy To S3 and Invalidate Cloudfront
 
 on:
   push:
@@ -12,5 +12,11 @@ jobs:
       - name: github repository 파일 불러오기
         uses: actions/checkout@v4
 
-      - name: repository 파일 출력하기
-        run: ls
+      - name: 빌드하기
+        run: npm run build
+
+      - name: 디버깅
+        run: |
+          ls
+          cd dist
+          ls
